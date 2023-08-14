@@ -3,7 +3,4 @@
 @tailwind utilities;
 
 @layer components {
-  .btn {
-    @apply bg-white/90 text-[#0C5C65]/80 py-3.5 px-5;
-  }
 }

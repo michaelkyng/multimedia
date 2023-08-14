@@ -1,14 +1,20 @@
 <template>
-  <div class="min-h-screen max-w-[80%] mx-auto">
-    <div class="flex flex-col min-h-screen justify-center gap-8">
-      <p class="text-center text-3xl text-white/90 font-bold">Data Types</p>
-      <div class="grid grid-cols-6 gap-5 h-96">
-        <div class="left bg-[#0A131C] rounded-3xl">
+  <div
+    class="h-screen flex grow justify-center max-w-full sm:max-w-[90%] lg:max-w-[80%] mx-auto"
+  >
+    <div
+      class="flex flex-col justify-center gap-8 overflow-auto h-auto py-40 w-full"
+    >
+      <p class="text-center text-3xl text-white/90 font-bold grow-0">
+        Data Types
+      </p>
+      <div class="grid grid-cols-6 gap-10 md:gap-5 h-96 grow">
+        <div class="left col-span-6 md:col-span-1 bg-[#0A131C] rounded-3xl">
           <div class="flex flex-col gap-5 h-full justify-center">
             <button
               :key="category.id"
               @click="tab = category.id"
-              class="text-white/90 text-2xl text-center py-3"
+              class="text-white/90 text-lg md:text-2xl text-center py-3"
               :class="{
                 'bg-[#101B26] font-medium border-r border-r-blue-500':
                   tab === category.id,
@@ -20,13 +26,15 @@
             </button>
           </div>
         </div>
-        <div class="right col-span-5 bg-[#0A131C] rounded-3xl p-5">
+        <div
+          class="right col-span-6 md:col-span-5 bg-[#0A131C] rounded-3xl p-5"
+        >
           <div class="flex flex-col gap-14 h-full" v-if="tab === 0">
             <p class="text-white/90 text-xl font-medium mt-3">
               About this Project
             </p>
             <p
-              class="grow bg-[#0C1721] rounded-3xl text-white/90 p-5 text-justify"
+              class="grow bg-[#0C1721] rounded-3xl text-white/90 p-5 text-justify h-96 overflow-auto"
             >
               The text data type is a versatile and commonly used data type in
               various programming languages and databases for storing textual or
@@ -45,18 +53,18 @@
 
           <div class="flex flex-col gap-14 h-full" v-else-if="tab === 1">
             <p class="text-white/90 text-xl font-medium mt-3">Sample Image</p>
-            <div class="grow">
+            <div class="h-96 w-5/6 mx-auto flex justify-center items-center">
               <img
                 src="/images/frame1.png"
-                class="rounded-3xl p-5 object-fill h-64 w-full"
+                class="rounded-3xl p-5 object-fit h-64 w-full grow"
               />
             </div>
           </div>
 
           <div class="flex flex-col gap-14 h-full" v-else-if="tab === 2">
             <p class="text-white/90 text-xl font-medium mt-3">Sample Audio</p>
-            <div class="grow flex justify-center items-center">
-              <audio controls>
+            <div class="grow h-96 flex justify-center items-center">
+              <audio class="w-4/6" controls>
                 <source src="/audio/audio.mp3" type="audio/mp3" />
                 Your browser does not support the audio element.
               </audio>
@@ -65,7 +73,7 @@
 
           <div class="flex flex-col gap-14 h-full" v-else-if="tab === 3">
             <p class="text-white/90 text-xl font-medium mt-3">Sample Video</p>
-            <div class="grow">
+            <div class="grow h-96 flex justify-center items-center">
               <video class="h-64 w-full" controls>
                 <source src="/video/video.mp4" type="video/mp4" />
                 Your browser does not support the audio element.
@@ -79,8 +87,6 @@
 </template>
 
 <script setup lang="ts">
-import { equal } from "assert";
-
 definePageMeta({
   layout: "data",
 });
